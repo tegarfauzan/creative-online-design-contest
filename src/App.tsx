@@ -18,7 +18,7 @@ function App() {
       <BrowserRouter>
       {/* <AuthProvider> */}
       <Routes>
-            <Route path="/manager/signin" element={<SignIn />} />
+            <Route path="/" element={<SignIn />} />
             <Route path="/manager/overview" element={<OverviewPage />} />
             <Route path="/manager/owners" element={<Owners />} />
             <Route path="/manager/manage-wallets" element={<ManageWallets />} />
