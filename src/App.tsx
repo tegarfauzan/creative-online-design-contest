@@ -18,6 +18,7 @@ import { MyWallet } from "./pages/Designer/MyWallet/MyWallet";
 import { MyWalletWithDrawalPending } from "./pages/Designer/MyWallet/MyWalletWithDrawalPending";
 import { MyWalletWithDrawalApproved } from "./pages/Designer/MyWallet/MyWalletWithDrawalApproved";
 import { MyWalletWithDrawal } from "./pages/Designer/MyWallet/MyWalletWithDrawal";
+import { MySubmissions } from "./pages/Designer/ManageSubmissions/MySubmissions";
 // import { AuthProvider } from "./providers/AuthProvider";
 
 // ✅ Create a QueryClient instance for React Query
@@ -42,10 +43,11 @@ function App() {
           <Route path="/manager/contests" element={<ContestsPage />} />
           <Route path="/users/sign-in" element={<SignInUsers />} />
           <Route path="/users/sign-up" element={<SignUpUsers />} />
+          <Route path="/designer/my-wallet" element={<MyWallet />} />
+          <Route path="/designer/my-wallet-withdrawal" element={<MyWalletWithDrawal />} />
           <Route path="/designer/my-wallet-withdrawal-pending" element={<MyWalletWithDrawalPending />} />
           <Route path="/designer/my-wallet-withdrawal-approved" element={<MyWalletWithDrawalApproved />} />
-          <Route path="/designer/my-wallet-withdrawal" element={<MyWalletWithDrawal />} />
-          <Route path="/designer/my-wallet" element={<MyWallet />} />
+          <Route path="/designer/my-submissions" element={<MySubmissions />} />
         </Routes>
         {/* </AuthProvider> */}
       </BrowserRouter>
