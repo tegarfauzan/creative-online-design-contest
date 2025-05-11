@@ -19,6 +19,21 @@ import { MyWalletWithDrawalPending } from "./pages/Designer/MyWallet/MyWalletWit
 import { MyWalletWithDrawalApproved } from "./pages/Designer/MyWallet/MyWalletWithDrawalApproved";
 import { MyWalletWithDrawal } from "./pages/Designer/MyWallet/MyWalletWithDrawal";
 import { MySubmissions } from "./pages/Designer/ManageSubmissions/MySubmissions";
+import { SubmissionDetails } from "./pages/Designer/ManageSubmissions/SubmissionDetails";
+import { SubmissionDetailsWinner } from "./pages/Designer/ManageSubmissions/SubmissionDetailsWinner";
+import { SubmissionDetailsEliminated } from "./pages/Designer/ManageSubmissions/SubmissionDetailsEliminated";
+import { MyWalletOwner } from "./pages/Owner/MyWallet/MyWalletOwner";
+import { MyWalletTopup } from "./pages/Owner/MyWallet/MyWalletTopup";
+import { MyWalletTopupPending } from "./pages/Owner/MyWallet/MyWalletTopupPending";
+import { MyWalletTopupApproved } from "./pages/Owner/MyWallet/MyWalletTopupApproved";
+import { MyContests } from "./pages/Owner/CrudContests/MyContests";
+import { MyContestsAddSteps } from "./pages/Owner/CrudContests/MyContestsAddSteps";
+import { MyContestsAddSuccess } from "./pages/Owner/CrudContests/MyContestsAddSuccess";
+import { ContestDetailsTabs } from "./pages/Owner/CrudContests/ContestDetailsTabs";
+import { DetailsWinner } from "./pages/Owner/CrudContests/DetailsWinner";
+import { ContestSubmitDesign } from "./pages/Owner/CrudContests/ContestSubmitDesign";
+import { ManageContestDetails } from "./pages/Owner/CrudContests/ManageContestDetails";
+import { ManageContestHasWinner } from "./pages/Owner/CrudContests/ManageContestHasWinner";
 // import { AuthProvider } from "./providers/AuthProvider";
 
 // ✅ Create a QueryClient instance for React Query
@@ -48,6 +63,21 @@ function App() {
           <Route path="/designer/my-wallet-withdrawal-pending" element={<MyWalletWithDrawalPending />} />
           <Route path="/designer/my-wallet-withdrawal-approved" element={<MyWalletWithDrawalApproved />} />
           <Route path="/designer/my-submissions" element={<MySubmissions />} />
+          <Route path="/designer/my-submission-details" element={<SubmissionDetails />} />
+          <Route path="/designer/my-submission-details-winner" element={<SubmissionDetailsWinner />} />
+          <Route path="/designer/my-submission-details-eliminated" element={<SubmissionDetailsEliminated />} />
+          <Route path="/owner/my-wallet" element={<MyWalletOwner />} />
+          <Route path="/owner/my-wallet-topup" element={<MyWalletTopup />} />
+          <Route path="/owner/my-wallet-topup-pending" element={<MyWalletTopupPending />} />
+          <Route path="/owner/my-wallet-topup-approved" element={<MyWalletTopupApproved />} />
+          <Route path="/owner/my-contests" element={<MyContests />} />
+          <Route path="/owner/my-contests-steps" element={<MyContestsAddSteps />} />
+          <Route path="/owner/contest-details-tabs" element={<ContestDetailsTabs />} />
+          <Route path="/owner/details-winner" element={<DetailsWinner />} />
+          <Route path="/owner/contest-submit" element={<ContestSubmitDesign />} />
+          <Route path="/owner/manage-contest-details" element={<ManageContestDetails />} />
+          <Route path="/owner/manage-contest-has-winner" element={<ManageContestHasWinner />} />
+          <Route path="/owner/my-contest-add-success" element={<MyContestsAddSuccess />} />
         </Routes>
         {/* </AuthProvider> */}
       </BrowserRouter>
