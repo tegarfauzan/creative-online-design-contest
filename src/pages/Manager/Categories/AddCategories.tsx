@@ -10,12 +10,14 @@ export const AddCategories = () => {
 
   const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setPhoto(e.target.files[0]);
+      e.preventDefault();
+      // setPhoto(e.target.files[0]);
     }
   };
 
-  const handleDeletePhoto = () => {
-    setPhoto(null);
+  const handleDeletePhoto = (e : React.MouseEvent) => {
+    e.preventDefault();
+    // setPhoto(null);
   };
 
   const navigate = useNavigate();
