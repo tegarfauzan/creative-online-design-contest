@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 type Contest = {
   title: string;
@@ -26,7 +27,9 @@ export const MyContestsAddSuccess = () => {
             <p className="text-sm text-gray-700">{contest.category}</p>
           </div>
 
-          <button className="bg-blue-600 text-white font-semibold px-6 py-2 rounded">View Details</button>
+          <Link to="/owner/contests/manage-details" className="bg-blue-600 text-white font-semibold px-6 py-2 rounded">
+            View Details
+          </Link>
         </>
       ) : (
         <p className="text-sm text-gray-500">No contest found.</p>

@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import type { FormEvent } from "react";
+import { SidebarOwner } from "../../../components/SidebarOwner";
 
 type BankInfo = {
   name: string;
@@ -9,6 +12,19 @@ type BankInfo = {
 export const MyWalletTopup = () => {
   const [amount, setAmount] = useState<number>(19000000);
   const [proofPhoto, setProofPhoto] = useState<File | null>(null);
+
+  const navigate = useNavigate();
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevent page reload
+
+    // ✅ You can do validation / API calls here
+    const isValid = true;
+
+    if (isValid) {
+      // Navigate to another route
+      navigate("/owner/wallet/topup/pending");
+    }
+  };
 
   const taxRate = 0.11;
   const taxAmount = amount * taxRate;
@@ -36,12 +52,7 @@ export const MyWalletTopup = () => {
   return (
     <div className="flex min-h-screen bg-white">
       {/* Sidebar */}
-      <aside className="w-48 p-4">
-        <nav className="space-y-4">
-          <button className="border border-black px-4 py-2 font-semibold">My Contests</button>
-          <button className="border border-black px-4 py-2 font-semibold">My Wallet</button>
-        </nav>
-      </aside>
+      <SidebarOwner/>
 
       {/* Content */}
       <main className="flex-1 p-8">
@@ -61,7 +72,7 @@ export const MyWalletTopup = () => {
 
         <div className="p-8 bg-white text-black grid grid-cols-1 lg:grid-cols-2 gap-10">
           {/* Left Form Section */}
-          <div>
+          <form onSubmit={handleSubmit}>
             <div className="mb-6">
               <h2 className="font-semibold mb-2">Send payment to</h2>
               <p>
@@ -109,8 +120,8 @@ export const MyWalletTopup = () => {
               )}
             </div>
 
-            <button className="w-full bg-blue-600 text-white py-2 font-semibold rounded hover:bg-blue-700">Submit My Top Up</button>
-          </div>
+            <button type="submit" className="w-full bg-blue-600 text-white py-2 font-semibold rounded hover:bg-blue-700">Submit My Top Up</button>
+          </form>
 
           {/* Right Wallet Summary */}
           <div className="space-y-6">

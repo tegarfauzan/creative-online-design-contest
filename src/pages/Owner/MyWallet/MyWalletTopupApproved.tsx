@@ -1,3 +1,5 @@
+import { SidebarOwner } from "../../../components/SidebarOwner";
+
 type TopUpDetail = {
   user: {
     name: string;
@@ -59,12 +61,7 @@ export const MyWalletTopupApproved = () => {
   return (
     <div className="flex min-h-screen bg-white text-black">
       {/* Sidebar */}
-      <aside className="w-48 p-4">
-        <nav className="space-y-4">
-          <button className="border border-black px-4 py-2 font-semibold">My Contests</button>
-          <button className="border border-black px-4 py-2 font-semibold">My Wallet</button>
-        </nav>
-      </aside>
+      <SidebarOwner/>
 
       {/* Main Content */}
       <main className="flex-1 p-8">

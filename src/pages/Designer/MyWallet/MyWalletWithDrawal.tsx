@@ -1,3 +1,7 @@
+import { SidebarDesigner } from "../../../components/SidebarDesigner";
+import { useNavigate } from "react-router-dom";
+import type { FormEvent } from "react";
+
 export const MyWalletWithDrawal = () => {
   const walletData = {
     name: "Irama Manji",
@@ -13,24 +17,24 @@ export const MyWalletWithDrawal = () => {
       "lorem dolor si amet makan ayam biar sehat",
     ],
   };
+  const navigate = useNavigate();
 
-  const handleWithdrawal = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Logic to request withdrawal here
-    alert("Withdrawal requested");
-  };
+ const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+     e.preventDefault(); // Prevent page reload
+ 
+     // ✅ You can do validation / API calls here
+     const isValid = true;
+ 
+     if (isValid) {
+       // Navigate to another route
+       navigate("/designer/wallet/withdrawal/pending");
+     }
+   };
 
   return (
     <div className="flex min-h-screen p-8 gap-12 font-sans text-black bg-white">
       {/* Sidebar */}
-      <div className="flex flex-col gap-4">
-        <button className="border border-black font-bold px-4 py-2 text-left">
-          My Submissions
-        </button>
-        <button className="border border-black font-bold px-4 py-2 text-left">
-          My Wallet
-        </button>
-      </div>
+      <SidebarDesigner/>
 
       {/* Main Content */}
       <div className="flex flex-col md:flex-row w-full gap-12">
@@ -38,7 +42,7 @@ export const MyWalletWithDrawal = () => {
         <div className="flex-1">
           <h1 className="text-2xl font-bold mb-6">withdraw Wallet</h1>
 
-          <form className="space-y-4" onSubmit={handleWithdrawal}>
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div>
               <label className="block font-semibold mb-1">top up amount</label>
               <input

@@ -1,3 +1,5 @@
+import { SidebarManager } from "../../../components/SidebarManager";
+
 export const Owners = () => {
   const owners = [
     {
@@ -45,31 +47,7 @@ export const Owners = () => {
   return (
     <div className="flex min-h-screen bg-[#FFFFFF] text-black">
       {/* Sidebar */}
-      <aside className="w-64 bg-white border-r p-4 space-y-6">
-        <div>
-          <button className="font-bold mb-2 block text-[18px]">Overview</button>
-          <div className="space-y-1">
-            <p className="font-semibold text-[18px]">Contest</p>
-            <button className="block text-[18px]">Categories</button>
-            <button className="block text-[18px]">Contests</button>
-          </div>
-          <div className="mt-4 space-y-1">
-            <p className="font-semibold text-[18px]">Members</p>
-            <button className="block text-[18px]">Owners</button>
-            <button className="block text-[18px]">Designers</button>
-          </div>
-          <div className="mt-4 space-y-1">
-            <p className="font-semibold text-[18px]">Payment</p>
-            <button className="block text-[18px]">Transactions</button>
-            <button className="block text-[18px]">Wallets</button>
-          </div>
-          <div className="mt-4 space-y-1">
-            <p className="font-semibold text-[18px]">Users</p>
-            <button className="block text-[18px]">Users</button>
-            <button className="block text-[18px]">Assign Role</button>
-          </div>
-        </div>
-      </aside>
+      <SidebarManager/>
 
       {/* Main Content */}
       <main className="flex-1 p-6 space-y-8">

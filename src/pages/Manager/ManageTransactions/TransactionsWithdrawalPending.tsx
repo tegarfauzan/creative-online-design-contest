@@ -1,3 +1,4 @@
+import { SidebarManager } from "../../../components/SidebarManager";
 
 type WithdrawalData = {
   user: {
@@ -70,33 +71,7 @@ export const TransactionsWithdrawalPending = () => {
   return (
     <div className="flex min-h-screen bg-white text-black">
       {/* Sidebar */}
-      <aside className="w-64 p-4 border-r border-gray-300">
-        <button className="w-full mb-4 border border-black font-bold py-2">Overview</button>
-
-        <div className="mb-6 border border-black">
-          <div className="border-b border-black p-2 font-bold text-center">Contest</div>
-          <div className="p-2 text-center">Categories</div>
-          <div className="p-2 text-center">Contests</div>
-        </div>
-
-        <div className="mb-6 border border-black">
-          <div className="border-b border-black p-2 font-bold text-center">Members</div>
-          <div className="p-2 text-center">Owners</div>
-          <div className="p-2 text-center">Designers</div>
-        </div>
-
-        <div className="mb-6 border border-black">
-          <div className="border-b border-black p-2 font-bold text-center">Payment</div>
-          <div className="p-2 text-center">Transactions</div>
-          <div className="p-2 text-center">Wallets</div>
-        </div>
-
-        <div className="border border-black">
-          <div className="border-b border-black p-2 font-bold text-center">Users</div>
-          <div className="p-2 text-center">Users</div>
-          <div className="p-2 text-center">Assign Role</div>
-        </div>
-      </aside>
+      <SidebarManager/>
 
       {/* Main Content */}
       <main className="flex-1 p-8">

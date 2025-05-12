@@ -1,3 +1,6 @@
+import { SidebarOwner } from "../../../components/SidebarOwner";
+import { Link } from 'react-router-dom';
+
 type Contest = {
   id: number;
   title: string;
@@ -49,12 +52,7 @@ export const MyContests = () => {
   return (
     <div className="flex min-h-screen bg-white text-black">
       {/* Sidebar */}
-      <aside className="w-48 p-4">
-        <nav className="space-y-4">
-          <button className="border border-black px-4 py-2 font-semibold">My Contests</button>
-          <button className="border border-black px-4 py-2 font-semibold">My Wallet</button>
-        </nav>
-      </aside>
+      <SidebarOwner />
 
       {/* Main Content */}
       <main className="flex-1 p-8">
@@ -74,7 +72,7 @@ export const MyContests = () => {
 
         <div className="p-8 bg-white text-black">
           <div className="flex justify-end mb-6">
-            <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add new</button>
+            <Link to={'/owner/contests/add-steps'} className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add new</Link>
           </div>
 
           {contests.length === 0 ? (

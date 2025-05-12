@@ -1,10 +1,17 @@
+import { useNavigate } from "react-router-dom";
+import type { FormEvent } from "react";
 export const SignIn = () => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const form = e.currentTarget as HTMLFormElement;
-    const email = (form.elements.namedItem('email') as HTMLInputElement).value;
-    const password = (form.elements.namedItem('password') as HTMLInputElement).value;
-    console.log('Submitted:', { email, password });
+  const navigate = useNavigate();
+   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevent page reload
+
+    // ✅ You can do validation / API calls here
+    const isValid = true;
+
+    if (isValid) {
+      // Navigate to another route
+      navigate("/manager/overview");
+    }
   };
 
   return (

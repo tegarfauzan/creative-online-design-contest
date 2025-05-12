@@ -1,3 +1,5 @@
+import { SidebarDesigner } from "../../../components/SidebarDesigner";
+
 type WithdrawalData = {
   message: string;
   requestedAt: string;
@@ -46,10 +48,7 @@ export const MyWalletWithDrawalPending = () => {
   return (
     <div className="flex min-h-screen bg-white text-black">
       {/* Sidebar */}
-      <aside className="w-64 p-4">
-        <button className="w-full mb-4 font-bold py-2">My Submissions</button>
-          <div className="p-2 font-bold text-center">My Wallet</div>
-      </aside>
+      <SidebarDesigner/>
 
       {/* Main Content */}
       <main className="flex-1 p-8">

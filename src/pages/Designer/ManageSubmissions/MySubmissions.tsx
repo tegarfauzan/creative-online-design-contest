@@ -1,4 +1,5 @@
-
+import { Link } from "react-router-dom";
+import { SidebarDesigner } from "../../../components/SidebarDesigner";
 type Submission = {
   id: number;
   title: string;
@@ -55,12 +56,7 @@ export const MySubmissions = () => {
   return (
     <div className="flex min-h-screen bg-white">
       {/* Sidebar */}
-      <aside className="w-48 p-4">
-        <nav className="space-y-4">
-          <button className="border border-black px-4 py-2 font-semibold">My Submissions</button>
-          <button className="border border-black px-4 py-2 font-semibold">My Wallet</button>
-        </nav>
-      </aside>
+      <SidebarDesigner/>
 
       {/* Content */}
       <main className="flex-1 p-8">
@@ -100,9 +96,9 @@ export const MySubmissions = () => {
                     <p className="font-semibold">{submission.state}</p>
                     <p className="font-semibold">{submission.totalSubmissions} submissions</p>
                   </div>
-                  <button className="border border-black px-4 py-2 font-semibold">
+                  <Link to={`/designer/submissions/details`} className="border border-black px-4 py-2 font-semibold">
                     Details
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}

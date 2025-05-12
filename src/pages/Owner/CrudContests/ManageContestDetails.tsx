@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SidebarOwner } from "../../../components/SidebarOwner";
 
 type Submission = {
   id: number;
@@ -46,14 +47,8 @@ export const ManageContestDetails = () => {
   return (
     <div className="p-8 max-w-5xl mx-auto text-black">
       <div className="flex gap-4 mb-10">
-        <div className="flex flex-col gap-2">
-          <button className="border border-black px-4 py-2 font-semibold text-sm">
-            My Contests
-          </button>
-          <button className="border border-black px-4 py-2 font-semibold text-sm">
-            My Wallets
-          </button>
-        </div>
+        {/* Sidebar */}
+        <SidebarOwner/>
 
         <div className="flex-1">
           <div className="flex justify-between items-start mb-8">

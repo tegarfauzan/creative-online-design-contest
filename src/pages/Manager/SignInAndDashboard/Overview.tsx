@@ -1,5 +1,6 @@
+import { SidebarManager } from "../../../components/SidebarManager";
 
-export const OverviewPage = () => {
+export const Overview = () => {
   const summary = {
     prize: 190394593,
     contests: 189.3948,
@@ -28,31 +29,7 @@ export const OverviewPage = () => {
   return (
     <div className="flex min-h-screen bg-gray-100 text-black">
       {/* Sidebar */}
-      <aside className="w-64 bg-white border-r p-4 space-y-6">
-        <div>
-          <button className="font-bold mb-2 block">Overview</button>
-          <div className="space-y-1">
-            <p className="font-semibold">Contest</p>
-            <button className="block">Categories</button>
-            <button className="block">Contests</button>
-          </div>
-          <div className="mt-4 space-y-1">
-            <p className="font-semibold">Members</p>
-            <button className="block">Owners</button>
-            <button className="block">Designers</button>
-          </div>
-          <div className="mt-4 space-y-1">
-            <p className="font-semibold">Payment</p>
-            <button className="block">Transactions</button>
-            <button className="block">Wallets</button>
-          </div>
-          <div className="mt-4 space-y-1">
-            <p className="font-semibold">Users</p>
-            <button className="block">Users</button>
-            <button className="block">Assign Role</button>
-          </div>
-        </div>
-      </aside>
+      <SidebarManager/>
 
       {/* Main Content */}
       <main className="flex-1 p-6 space-y-8">

@@ -1,5 +1,8 @@
 // MyContestsAddSteps.tsx
 import { useState } from 'react';
+import { SidebarOwner } from '../../../components/SidebarOwner';
+import { useNavigate } from "react-router-dom";
+import type { FormEvent } from "react";
 
 export const MyContestsAddSteps = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -8,6 +11,18 @@ export const MyContestsAddSteps = () => {
     { name: 'Presentation B' },
     { name: 'Design Files C' },
   ];
+  const navigate = useNavigate();
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevent page reload
+
+    // ✅ You can do validation / API calls here
+    const isValid = true;
+
+    if (isValid) {
+      // Navigate to another route
+      navigate("/owner/contests/add/success");
+    }
+  };
 
   const deliverables = ['PDF', 'DOCX', 'PNG', 'SVG'];
 
@@ -122,7 +137,7 @@ export const MyContestsAddSteps = () => {
 
         {/* Continue button */}
         <div className="mt-10">
-          <button className="bg-blue-600 text-white px-8 py-3 font-bold">Continue</button>
+          <button onClick={() => setCurrentStep(3)} className="bg-blue-600 text-white px-8 py-3 font-bold">Continue</button>
         </div>
       </div>
     </div>
@@ -145,7 +160,7 @@ export const MyContestsAddSteps = () => {
             placeholder="Type your prize"
             className="border border-black w-full p-2 mb-4"
           />
-          <button className="bg-blue-600 text-white px-8 py-3 font-bold">
+          <button type='submit' className="bg-blue-600 text-white px-8 py-3 font-bold">
             Continue
           </button>
         </div>
@@ -181,16 +196,15 @@ export const MyContestsAddSteps = () => {
   return (
     <div className="flex min-h-screen bg-white text-black">
       {/* Sidebar */}
-      <div className="flex flex-col gap-4 p-6">
-        <button className="border border-black px-4 py-2 font-semibold">My Contests</button>
-        <button className="border border-black px-4 py-2 font-semibold">My Wallets</button>
-      </div>
+      <SidebarOwner/>
 
       {/* Main Content */}
       <div className="flex-1 px-10 py-8">
         <h1 className="text-3xl font-bold mb-6">Add new contest</h1>
+        <form onSubmit={handleSubmit}>
         {renderStepTabs()}
         {renderStepContent()}
+        </form>
       </div>
     </div>
   );

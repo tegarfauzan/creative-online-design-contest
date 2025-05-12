@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { SidebarManager } from '../../../components/SidebarManager';
+import { useNavigate } from "react-router-dom";
+import type { FormEvent } from "react";
 
 export const AddCategories = () => {
   const [name, setName] = useState('');
@@ -15,48 +18,24 @@ export const AddCategories = () => {
     setPhoto(null);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Simulasi submit
-    console.log({ name, about, photo });
+  const navigate = useNavigate();
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevent page reload
+
+    // ✅ You can do validation / API calls here
+    const isValid = true;
+
+    if (isValid) {
+      // Navigate to another route
+      navigate("/manager/categories");
+    }
   };
 
   return (
     <div className="flex min-h-screen bg-white text-black">
       {/* Sidebar */}
-      <aside className="w-64 border-r p-4 space-y-6">
-        <div>
-          <button className="w-full border px-4 py-2 font-semibold">Overview</button>
-        </div>
-        <div>
-          <p className="font-semibold">Contest</p>
-          <div className="pl-2 border-t mt-2 pt-2 space-y-1">
-            <p>Categories</p>
-            <p>Contests</p>
-          </div>
-        </div>
-        <div>
-          <p className="font-semibold">Members</p>
-          <div className="pl-2 border-t mt-2 pt-2 space-y-1">
-            <p>Owners</p>
-            <p>Designers</p>
-          </div>
-        </div>
-        <div>
-          <p className="font-semibold">Payment</p>
-          <div className="pl-2 border-t mt-2 pt-2 space-y-1">
-            <p>Transactions</p>
-            <p>Wallets</p>
-          </div>
-        </div>
-        <div>
-          <p className="font-semibold">Users</p>
-          <div className="pl-2 border-t mt-2 pt-2 space-y-1">
-            <p>Users</p>
-            <p>Assign Role</p>
-          </div>
-        </div>
-      </aside>
+      <SidebarManager/>
 
       {/* Main content */}
       <main className="flex-1 p-8">

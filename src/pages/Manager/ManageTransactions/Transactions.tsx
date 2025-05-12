@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { SidebarManager } from "../../../components/SidebarManager";
 
 type Transaction = {
   id: number;
@@ -85,33 +87,7 @@ export const Transactions = () => {
   return (
     <div className="flex min-h-screen bg-white text-black">
       {/* Sidebar */}
-      <aside className="w-64 p-4 border-r border-gray-300">
-        <button className="w-full mb-4 border border-black font-bold py-2">Overview</button>
-
-        <div className="mb-6 border border-black">
-          <div className="border-b border-black p-2 font-bold text-center">Contest</div>
-          <div className="p-2 text-center">Categories</div>
-          <div className="p-2 text-center">Contests</div>
-        </div>
-
-        <div className="mb-6 border border-black">
-          <div className="border-b border-black p-2 font-bold text-center">Members</div>
-          <div className="p-2 text-center">Owners</div>
-          <div className="p-2 text-center">Designers</div>
-        </div>
-
-        <div className="mb-6 border border-black">
-          <div className="border-b border-black p-2 font-bold text-center">Payment</div>
-          <div className="p-2 text-center">Transactions</div>
-          <div className="p-2 text-center">Wallets</div>
-        </div>
-
-        <div className="border border-black">
-          <div className="border-b border-black p-2 font-bold text-center">Users</div>
-          <div className="p-2 text-center">Users</div>
-          <div className="p-2 text-center">Assign Role</div>
-        </div>
-      </aside>
+      <SidebarManager/>
 
       {/* Main Content */}
       <main className="flex-1 p-8">
@@ -171,9 +147,9 @@ export const Transactions = () => {
                 <p className="text-sm text-gray-500">{tx.role}</p>
               </div>
 
-              <button className="border border-gray-800 text-sm px-3 py-1 rounded hover:bg-gray-100">
+              <Link to={`/manager/transactions/${tx.id}`} className="border border-gray-800 text-sm px-3 py-1 rounded hover:bg-gray-100">
                 Details
-              </button>
+              </Link>
             </div>
           ))}
         </div>

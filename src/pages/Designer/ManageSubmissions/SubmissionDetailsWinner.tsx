@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SidebarDesigner } from "../../../components/SidebarDesigner";
 
 type SubmissionWinner = {
   title: string;
@@ -33,12 +34,7 @@ export const SubmissionDetailsWinner = () => {
   return (
     <div className="flex min-h-screen bg-white">
       {/* Sidebar */}
-      <aside className="w-48 p-4">
-        <nav className="space-y-4">
-          <button className="border border-black px-4 py-2 font-semibold">My Submissions</button>
-          <button className="border border-black px-4 py-2 font-semibold">My Wallet</button>
-        </nav>
-      </aside>
+      <SidebarDesigner/>
 
       {/* Content */}
       <main className="flex-1 p-8">

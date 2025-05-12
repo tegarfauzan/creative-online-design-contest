@@ -1,10 +1,18 @@
+import { useNavigate } from "react-router-dom";
+import type { FormEvent } from "react";
+
 export const SignInUsers = () => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const form = e.currentTarget as HTMLFormElement;
-    const email = (form.elements.namedItem('email') as HTMLInputElement).value;
-    const password = (form.elements.namedItem('password') as HTMLInputElement).value;
-    console.log('Submitted:', { email, password });
+   const navigate = useNavigate();
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevent page reload
+
+    // ✅ You can do validation / API calls here
+    const isValid = true;
+
+    if (isValid) {
+      // Navigate to another route
+      navigate("/owner/wallet");
+    }
   };
 
   return (
@@ -20,7 +28,6 @@ export const SignInUsers = () => {
             name="email"
             placeholder="Email Address"
             className="border border-[#000000] px-[10px] py-[10px] bg-transparent text-[#404040] text-[16px] font-semibold"
-            required
           />
 
           <input
@@ -28,7 +35,6 @@ export const SignInUsers = () => {
             name="password"
             placeholder="Password"
             className="border border-[#000000] px-[10px] py-[10px] bg-transparent text-[#404040] text-[16px] font-semibold"
-            required
           />
 
           <button

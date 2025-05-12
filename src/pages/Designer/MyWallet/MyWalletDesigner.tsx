@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import { SidebarDesigner } from "../../../components/SidebarDesigner";
+
 type TransactionStatus = "Pending" | "Approved" | "Declined";
 
 interface Transaction {
@@ -36,14 +39,11 @@ const transactions: Transaction[] = [
   },
 ];
 
-export const MyWallet = () => {
+export const MyWalletDesigner = () => {
   return (
     <div className="flex min-h-screen font-sans p-8">
       {/* Sidebar */}
-      <div className="w-1/6 flex flex-col gap-4">
-        <button className="border border-black px-4 py-2 font-bold text-sm">My Submissions</button>
-        <button className="border border-black px-4 py-2 text-sm">My Wallet</button>
-      </div>
+      <SidebarDesigner/>
 
       {/* Main Content */}
       <div className="w-5/6 flex flex-col">
@@ -76,7 +76,7 @@ export const MyWallet = () => {
         {/* Description & Button */}
         <div className="mb-8 flex items-center justify-between max-w-3xl">
           <p>You are designer role so you can withdraw wallet</p>
-          <button className="bg-[#4F46E5] text-white px-4 py-2 rounded font-semibold text-sm">Request Withdrawal</button>
+          <Link to="/designer/wallet/withdrawal" className="bg-[#4F46E5] text-white px-4 py-2 rounded font-semibold text-sm">Request Withdrawal</Link>
         </div>
 
         {/* Transactions */}

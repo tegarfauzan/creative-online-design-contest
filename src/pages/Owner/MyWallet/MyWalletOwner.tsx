@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+import { SidebarOwner } from '../../../components/SidebarOwner';
 type Transaction = {
   id: number;
   type: "Top Up" | "Contest";
@@ -40,12 +42,7 @@ export const MyWalletOwner = () => {
   return (
     <div className="flex min-h-screen bg-white">
       {/* Sidebar */}
-      <aside className="w-48 p-4">
-        <nav className="space-y-4">
-          <button className="border border-black px-4 py-2 font-semibold">My Contests</button>
-          <button className="border border-black px-4 py-2 font-semibold">My Wallet</button>
-        </nav>
-      </aside>
+      <SidebarOwner />
 
       {/* Content */}
       <main className="flex-1 p-8">
@@ -73,7 +70,9 @@ export const MyWalletOwner = () => {
         </div>
         <div className="md:ml-8">
           <p className="mb-4">You are owner role so you can topup wallet to open new contests</p>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded">Topup Wallet</button>
+          <Link to="/owner/wallet/topup">
+          <div className="bg-blue-600 text-white px-4 py-2 rounded">Topup Wallet</div>
+          </Link>
         </div>
       </div>
 

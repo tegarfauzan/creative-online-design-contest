@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SidebarManager } from "../../../components/SidebarManager";
 
 interface Contest {
   id: number;
@@ -14,7 +15,7 @@ const dummyContests: Contest[] = [
   { id: 4, title: 'Landing page eat catering healthy', category: 'Web Design', owner: 'Adriana' },
 ];
 
-export const ContestsPage = () => {
+export const Contests = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedContestId, setSelectedContestId] = useState<number | null>(null);
 
@@ -32,37 +33,7 @@ export const ContestsPage = () => {
   return (
     <div className="flex min-h-screen bg-white text-black">
       {/* Sidebar */}
-      <aside className="w-64 border-r p-4 space-y-6">
-        <button className="w-full border px-4 py-2 font-semibold">Overview</button>
-        <div>
-          <p className="font-semibold">Contest</p>
-          <div className="pl-2 border-t mt-2 pt-2 space-y-1">
-            <p>Categories</p>
-            <p>Contests</p>
-          </div>
-        </div>
-        <div>
-          <p className="font-semibold">Members</p>
-          <div className="pl-2 border-t mt-2 pt-2 space-y-1">
-            <p>Owners</p>
-            <p>Designers</p>
-          </div>
-        </div>
-        <div>
-          <p className="font-semibold">Payment</p>
-          <div className="pl-2 border-t mt-2 pt-2 space-y-1">
-            <p>Transactions</p>
-            <p>Wallets</p>
-          </div>
-        </div>
-        <div>
-          <p className="font-semibold">Users</p>
-          <div className="pl-2 border-t mt-2 pt-2 space-y-1">
-            <p>Users</p>
-            <p>Assign Role</p>
-          </div>
-        </div>
-      </aside>
+      <SidebarManager/>
 
       {/* Main Content */}
       <main className="flex-1 p-8">

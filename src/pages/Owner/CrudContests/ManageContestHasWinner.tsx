@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SidebarOwner } from "../../../components/SidebarOwner";
 
 type SubmissionStatus = "Winner" | "Eliminated";
 
@@ -50,14 +51,7 @@ export const ManageContestHasWinner = () => {
     <div className="p-8 max-w-5xl mx-auto text-black">
       <div className="flex gap-4 mb-10">
         {/* Sidebar */}
-        <div className="flex flex-col gap-2">
-          <button className="border border-black px-4 py-2 font-semibold text-sm">
-            My Contests
-          </button>
-          <button className="border border-black px-4 py-2 font-semibold text-sm">
-            My Wallets
-          </button>
-        </div>
+        <SidebarOwner />
 
         {/* Main Content */}
         <div className="flex-1">
