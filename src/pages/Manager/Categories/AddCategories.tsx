@@ -6,7 +6,7 @@ import type { FormEvent } from "react";
 export const AddCategories = () => {
   const [name, setName] = useState('');
   const [about, setAbout] = useState('');
-  const [photo, setPhoto] = useState<File | null>(null);
+  // const [photo, setPhoto] = useState<File | null>(null);
 
   const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
