@@ -1,77 +1,101 @@
 import { Link } from "react-router-dom";
-import { SidebarManager } from "../../../components/SidebarManager";
+import type { SidebarSection, Category, User } from "../../../types/type";
+import { Sidebar } from "../../../components/Sidebar";
+import { Profile } from "../../../components/Profile";
 
-type Category = {
-  id: number;
-  title: string;
-  description: string;
-  contestCount: number;
-};
+export const sidebarSections: SidebarSection[] = [
+  {
+    links: [{ label: "Overview", path: "/manager/overview" }],
+  },
+  {
+    title: "Contest",
+    links: [
+      { label: "Categories", path: "/manager/categories" },
+      { label: "Contests", path: "/manager/contests" },
+    ],
+  },
+  {
+    title: "Members",
+    links: [
+      { label: "Owners", path: "/manager/owners" },
+      { label: "Designers", path: "#" },
+    ],
+  },
+  {
+    title: "Payment",
+    links: [
+      { label: "Transactions", path: "/manager/transactions" },
+      { label: "Wallets", path: "/manager/wallets" },
+    ],
+  },
+  {
+    title: "Users",
+    links: [
+      { label: "Users", path: "#" },
+      { label: "Assign Role", path: "#" },
+    ],
+  },
+];
 
 const staticCategories: Category[] = [
   {
     id: 1,
-    title: 'Logo Design',
-    description: 'High Quality Pixel',
+    title: "Logo Design",
+    description: "High Quality Pixel",
     contestCount: 193,
   },
   {
     id: 2,
-    title: 'Logo Design',
-    description: 'High Quality Pixel',
+    title: "Logo Design",
+    description: "High Quality Pixel",
     contestCount: 193,
   },
   {
     id: 3,
-    title: 'Logo Design',
-    description: 'High Quality Pixel',
+    title: "Logo Design",
+    description: "High Quality Pixel",
     contestCount: 193,
   },
   {
     id: 4,
-    title: 'Logo Design',
-    description: 'High Quality Pixel',
+    title: "Logo Design",
+    description: "High Quality Pixel",
     contestCount: 193,
   },
   {
     id: 5,
-    title: 'Logo Design',
-    description: 'High Quality Pixel',
+    title: "Logo Design",
+    description: "High Quality Pixel",
     contestCount: 193,
   },
 ];
+const user: User = {
+  name: "Ayunda Shayna",
+  role: "Role Manager",
+  avatarUrl: "https://via.placeholder.com/40", // placeholder image
+};
 
 export const Categories = () => {
   return (
     <div className="flex min-h-screen bg-white text-black">
       {/* Sidebar */}
-      <SidebarManager/>
+      <Sidebar sections={sidebarSections} />
 
       {/* Main content */}
       <main className="flex-1 p-8">
         <div className="flex justify-between items-start">
           <h1 className="text-3xl font-bold mb-6">Categories</h1>
-          <div className="flex items-center gap-4">
-            <div className="text-right">
-              <p className="font-semibold">Ayunda Shayna</p>
-              <p className="text-sm">Role Manager</p>
-              <a href="#" className="text-sm underline text-black">
-                Logout
-              </a>
-            </div>
-            <div className="w-12 h-12 bg-gray-300 rounded-full"></div>
-          </div>
+          <Profile user={user} />
         </div>
 
-        <Link to={`/manager/categories/add`} className="bg-blue-600 text-white px-6 py-2 mb-6">Add new</Link>
+        <Link to={`/manager/categories/add`} className="bg-blue-600 text-white px-6 py-2 mb-6">
+          Add new
+        </Link>
 
         {staticCategories.length > 0 ? (
           <div className="space-y-4">
             {staticCategories.map((category) => (
-              <div
-                key={category.id}
-                className="flex items-center justify-between border p-4 rounded"
-              >
+              <div key={category.id} className="flex items-center justify-between border p-4 rounded">
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 bg-gray-300" />
                   <div>
@@ -84,7 +108,9 @@ export const Categories = () => {
 
                 <div className="flex gap-2">
                   <button className="border px-4 py-1">Details</button>
-                  <Link to={`/manager/categories/edit/${category.id}`} className="border px-4 py-1">Edit</Link>
+                  <Link to={`/manager/categories/edit/${category.id}`} className="border px-4 py-1">
+                    Edit
+                  </Link>
                   <button className="border px-4 py-1">Delete</button>
                 </div>
               </div>

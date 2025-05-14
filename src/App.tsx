@@ -1,43 +1,38 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import { Overview } from "./pages/Manager/SignInAndDashboard/Overview";
-import { SignIn } from "./pages/Manager/SignInAndDashboard/SignIn";
-import { Owners } from "./pages/Manager/ManageOwnersAndDesigners/Owners";
-import { ManageWallets } from "./pages/Manager/ManageWallets/ManageWallets";
-import { Transactions } from "./pages/Manager/ManageTransactions/Transactions";
-import { TransactionsTopupPending } from "./pages/Manager/ManageTransactions/TransactionsTopupPending";
-import { TransactionsTopupApproved } from "./pages/Manager/ManageTransactions/TransactionsTopupApproved";
-import { TransactionsWithdrawalPending } from "./pages/Manager/ManageTransactions/TransactionsWithdrawalPending";
-import { TransactionWithdrawalApproved } from "./pages/Manager/ManageTransactions/TransactionsWithdrawalApproved";
-import { Categories } from "./pages/Manager/Categories/Categories";
-import { AddCategories } from "./pages/Manager/Categories/AddCategories";
-import { Contests } from "./pages/Manager/ManageContensts/Contensts";
+import { Overview } from "./pages/manager/sign_in_and_dashboard/Overview";
+import { SignIn } from "./pages/manager/sign_in_and_dashboard/SignIn";
+import { Owners } from "./pages/manager/manage_owners_and_designers/Owners";
+import { ManageWallets } from "./pages/manager/manage_wallets/ManageWallets";
+import { Transactions } from "./pages/manager/manage_transactions/Transactions";
+import { TransactionsTopup } from "./pages/manager/manage_transactions/TransactionsTopup";
+import { TransactionsWithdrawal } from "./pages/manager/manage_transactions/TransactionsWithdrawal";
+import { Categories } from "./pages/manager/categories/Categories";
+import { AddCategories } from "./pages/manager/categories/AddCategories";
+import { Contests } from "./pages/manager/manage_contensts/Contensts";
 
-import { SignUpUsers } from "./pages/Users/SignInAndSignUp/SignUpUsers";
-import { SignInUsers } from "./pages/Users/SignInAndSignUp/SignInUsers";
+import { SignUpUsers } from "./pages/users/sign_in_and_sign_up/SignUpUsers";
+import { SignInUsers } from "./pages/users/sign_in_and_sign_up/SignInUsers";
 
-import { MyWalletDesigner } from "./pages/Designer/MyWallet/MyWalletDesigner";
-import { MyWalletWithDrawalPending } from "./pages/Designer/MyWallet/MyWalletWithDrawalPending";
-import { MyWalletWithDrawalApproved } from "./pages/Designer/MyWallet/MyWalletWithDrawalApproved";
-import { MyWalletWithDrawal } from "./pages/Designer/MyWallet/MyWalletWithDrawal";
-import { MySubmissions } from "./pages/Designer/ManageSubmissions/MySubmissions";
-import { SubmissionDetails } from "./pages/Designer/ManageSubmissions/SubmissionDetails";
-import { SubmissionDetailsWinner } from "./pages/Designer/ManageSubmissions/SubmissionDetailsWinner";
-import { SubmissionDetailsEliminated } from "./pages/Designer/ManageSubmissions/SubmissionDetailsEliminated";
+import { MyWalletDesigner } from "./pages/designer/my_wallet/MyWalletDesigner";;
+import { MyWalletWithDrawal } from "./pages/designer/my_wallet/MyWalletWithDrawal";
+import { MySubmissions } from "./pages/designer/manage_submissions/MySubmissions";
+import { SubmissionDetails } from "./pages/designer/manage_submissions/SubmissionDetails";
 
-import { MyWalletOwner } from "./pages/Owner/MyWallet/MyWalletOwner";
-import { MyWalletTopup } from "./pages/Owner/MyWallet/MyWalletTopup";
-import { MyWalletTopupPending } from "./pages/Owner/MyWallet/MyWalletTopupPending";
-import { MyWalletTopupApproved } from "./pages/Owner/MyWallet/MyWalletTopupApproved";
-import { MyContests } from "./pages/Owner/CrudContests/MyContests";
-import { MyContestsAddSteps } from "./pages/Owner/CrudContests/MyContestsAddSteps";
-import { MyContestsAddSuccess } from "./pages/Owner/CrudContests/MyContestsAddSuccess";
-import { ContestDetailsTabs } from "./pages/Owner/CrudContests/ContestDetailsTabs";
-import { DetailsWinner } from "./pages/Owner/CrudContests/DetailsWinner";
-import { ContestSubmitDesign } from "./pages/Owner/CrudContests/ContestSubmitDesign";
-import { ManageContestDetails } from "./pages/Owner/CrudContests/ManageContestDetails";
-import { ManageContestHasWinner } from "./pages/Owner/CrudContests/ManageContestHasWinner";
+import { MyWalletOwner } from "./pages/owner/my_wallet/MyWalletOwner";
+import { MyWalletTopup } from "./pages/owner/my_wallet/MyWalletTopup";
+import { MyWalletTopupPending } from "./pages/owner/my_wallet/MyWalletTopupPending";
+import { MyWalletTopupApproved } from "./pages/owner/my_wallet/MyWalletTopupApproved";
+import { MyContests } from "./pages/owner/crud_contests/MyContests";
+import { MyContestsAddSteps } from "./pages/owner/crud_contests/MyContestsAddSteps";
+import { MyContestsAddSuccess } from "./pages/owner/crud_contests/MyContestsAddSuccess";
+import { ContestDetailsTabs } from "./pages/owner/crud_contests/ContestDetailsTabs";
+import { DetailsWinner } from "./pages/owner/crud_contests/DetailsWinner";
+import { ContestSubmitDesign } from "./pages/owner/crud_contests/ContestSubmitDesign";
+import { ManageContestDetails } from "./pages/owner/crud_contests/ManageContestDetails";
+import { ManageContestHasWinner } from "./pages/owner/crud_contests/ManageContestHasWinner";
+import { MyWalletWithDrawalStatus } from "./pages/designer/my_wallet/MyWalletWithDrawalStatus";
 // import { AuthProvider } from "./providers/AuthProvider";
 
 // ✅ Create a QueryClient instance for React Query
@@ -54,10 +49,8 @@ function App() {
           <Route path="/manager/owners" element={<Owners />} />
           <Route path="/manager/wallets" element={<ManageWallets />} />
           <Route path="/manager/transactions" element={<Transactions />} />
-          <Route path="/manager/transactions/topup/pending" element={<TransactionsTopupPending />} />
-          <Route path="/manager/transactions/topup/approved" element={<TransactionsTopupApproved />} />
-          <Route path="/manager/transactions/withdrawal/pending" element={<TransactionsWithdrawalPending />} />
-          <Route path="/manager/transactions/withdrawal/approved" element={<TransactionWithdrawalApproved />} />
+          <Route path="/manager/transactions/topup/" element={<TransactionsTopup />} />
+          <Route path="/manager/transactions/withdrawal/" element={<TransactionsWithdrawal />} />
           <Route path="/manager/categories" element={<Categories />} />
           <Route path="/manager/categories/add" element={<AddCategories />} />
           <Route path="/manager/contests" element={<Contests />} />
@@ -69,14 +62,9 @@ function App() {
           {/* Designer */}
           <Route path="/designer/wallet" element={<MyWalletDesigner />} />
           <Route path="/designer/wallet/withdrawal" element={<MyWalletWithDrawal />} />
-          <Route path="/designer/wallet/withdrawal/pending" element={<MyWalletWithDrawalPending />} />
-          {/* if approved */}
-          <Route path="/designer/wallet/withdrawal/approved" element={<MyWalletWithDrawalApproved />} />
-          {/* end if approved */}
+          <Route path="/designer/wallet/withdrawal/status" element={<MyWalletWithDrawalStatus />} />
           <Route path="/designer/submissions" element={<MySubmissions />} />
           <Route path="/designer/submissions/details" element={<SubmissionDetails />} />
-          <Route path="/designer/submissions/details/winner" element={<SubmissionDetailsWinner />} />
-          <Route path="/designer/submissions/details/eliminated" element={<SubmissionDetailsEliminated />} />
 
           {/* Owner */}
           <Route path="/owner/wallet" element={<MyWalletOwner />} />

@@ -1,11 +1,46 @@
-import React, { useState } from 'react';
-import { SidebarManager } from '../../../components/SidebarManager';
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { FormEvent } from "react";
+import type { SidebarSection } from "../../../types/type";
+import { Sidebar } from "../../../components/Sidebar";
+
+export const sidebarSections: SidebarSection[] = [
+  {
+    links: [{ label: "Overview", path: "/manager/overview" }],
+  },
+  {
+    title: "Contest",
+    links: [
+      { label: "Categories", path: "/manager/categories" },
+      { label: "Contests", path: "/manager/contests" },
+    ],
+  },
+  {
+    title: "Members",
+    links: [
+      { label: "Owners", path: "/manager/owners" },
+      { label: "Designers", path: "#" },
+    ],
+  },
+  {
+    title: "Payment",
+    links: [
+      { label: "Transactions", path: "/manager/transactions" },
+      { label: "Wallets", path: "/manager/wallets" },
+    ],
+  },
+  {
+    title: "Users",
+    links: [
+      { label: "Users", path: "#" },
+      { label: "Assign Role", path: "#" },
+    ],
+  },
+];
 
 export const AddCategories = () => {
-  const [name, setName] = useState('');
-  const [about, setAbout] = useState('');
+  const [name, setName] = useState("");
+  const [about, setAbout] = useState("");
   // const [photo, setPhoto] = useState<File | null>(null);
 
   const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -15,7 +50,7 @@ export const AddCategories = () => {
     }
   };
 
-  const handleDeletePhoto = (e : React.MouseEvent) => {
+  const handleDeletePhoto = (e: React.MouseEvent) => {
     e.preventDefault();
     // setPhoto(null);
   };
@@ -37,7 +72,7 @@ export const AddCategories = () => {
   return (
     <div className="flex min-h-screen bg-white text-black">
       {/* Sidebar */}
-      <SidebarManager/>
+      <Sidebar sections={sidebarSections} />
 
       {/* Main content */}
       <main className="flex-1 p-8">
@@ -63,30 +98,14 @@ export const AddCategories = () => {
               Add Photo
               <input type="file" className="hidden" onChange={handlePhotoChange} />
             </label>
-            <button
-              type="button"
-              onClick={handleDeletePhoto}
-              className="border px-4 py-2 text-sm"
-            >
+            <button type="button" onClick={handleDeletePhoto} className="border px-4 py-2 text-sm">
               Delete photo
             </button>
           </div>
 
-          <input
-            type="text"
-            placeholder="Name"
-            className="w-full border px-4 py-2"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
+          <input type="text" placeholder="Name" className="w-full border px-4 py-2" value={name} onChange={(e) => setName(e.target.value)} />
 
-          <input
-            type="text"
-            placeholder="about"
-            className="w-full border px-4 py-2"
-            value={about}
-            onChange={(e) => setAbout(e.target.value)}
-          />
+          <input type="text" placeholder="about" className="w-full border px-4 py-2" value={about} onChange={(e) => setAbout(e.target.value)} />
 
           <button type="submit" className="bg-blue-600 text-white px-6 py-2">
             Save data
